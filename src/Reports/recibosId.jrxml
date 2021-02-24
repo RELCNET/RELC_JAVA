@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recibos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc8f2f3d-0fd2-481d-b601-cda4d6098c6d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="id_para" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     recibos.`id` AS recibos_id,
+     recibos.`facId` AS recibos_facId,
+     recibos.`name` AS recibos_name,
+     recibos.`descricao` AS recibos_descricao,
+     recibos.`price` AS recibos_price,
+     recibos.`date` AS recibos_date
+FROM
+     `recibos` recibos where id = $P{id_para}]]>
+	</queryString>
+	<field name="recibos_id" class="java.lang.Integer"/>
+	<field name="recibos_facId" class="java.lang.String"/>
+	<field name="recibos_name" class="java.lang.String"/>
+	<field name="recibos_descricao" class="java.lang.String"/>
+	<field name="recibos_price" class="java.lang.String"/>
+	<field name="recibos_date" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="253" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="435" y="95" width="80" height="20" uuid="ccc17b1c-5435-4706-956d-4e5497c60567"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="515" y="95" width="40" height="20" uuid="0f4e928f-578a-4776-8489-03ffa941f955"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="464" y="130" width="91" height="15" uuid="d2fe19bc-37b8-4425-9693-1f011a82122e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apoio ao cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="145" width="222" height="15" uuid="eeee249a-dfce-4cba-85ef-fa1c540a516d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[922 910 302 , segunda a sexta das 08h as 16h]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="435" y="160" width="119" height="15" uuid="262d4536-1604-4354-a2ef-7d5adfd627f9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[geral.relc@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="454" y="175" width="101" height="15" uuid="fb7c2bbd-0296-4481-8af5-f404051708cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[relcnet.netlify.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="142" width="103" height="15" uuid="0ce9b478-4d8a-47a7-9a4d-9730f6790cb1"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rua do massangano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="157" width="103" height="15" uuid="bd76ccba-9273-4e45-b62a-4c8368afca9b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bairro da Bela-Vista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="172" width="103" height="15" uuid="095e0d9c-8f1c-48b2-8f15-6129ecb4ed08"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NIF: 004667791BA042]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="3" y="214" width="552" height="15" uuid="1deb824f-ad48-4ef0-9fb8-c2c93e0c071c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibos_name}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="245" y="2" width="66" height="59" uuid="1a3b818a-1b56-4c79-b983-264d78c463e1"/>
+				<imageExpression><![CDATA["D:\\RELC Projects\\RELC\\RELC_Java\\src\\Icons\\Rrelc.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Column header" x="184" y="63" width="188" height="18" uuid="390b691c-5e1d-4c1e-ab28-f4db8341ccfa"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="13"/>
+				</textElement>
+				<text><![CDATA[Prestação de serviços em T.I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="245" y="82" width="66" height="18" uuid="fd584407-c77e-45e2-b558-6557854ec298"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="13"/>
+				</textElement>
+				<text><![CDATA[Recibo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="53bc436e-8e00-44f8-8c2b-37d977036ae4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="63" height="15" uuid="5056952d-66de-4153-b4b3-1634737dbcfa"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[Recibo Nº]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="0" width="79" height="15" uuid="12885568-da59-45dd-96f1-0113063453e6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="102" y="0" width="166" height="15" uuid="041b28a3-8d72-47e0-98ec-9685b30a2c79"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<text><![CDATA[Referência de pagamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="4a072d5f-4d0e-4190-878c-80a00060e5f2"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="63" height="15" uuid="7b1cf393-5b92-4786-8cca-4acf9dcebb79"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibos_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="dc75a5cd-3828-46fa-94a3-c95121c7975d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibos_price}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="102" y="1" width="270" height="15" uuid="5270415e-0cdc-4e3d-9d5e-dfa4ecb63ba6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pagamento de mensalidade referente a fatura nº]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="372" y="0" width="61" height="15" uuid="9b910b34-bb8e-4905-84b4-60a6e837fb3e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{recibos_facId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="169" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-4" y="25" width="555" height="1" uuid="23ffaa7f-a690-44b7-9d0d-b20cf8ad3f50"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="1" y="69" width="38" height="16" forecolor="#666666" uuid="3124a95e-6bea-4fe2-855a-b96ace1d5a9c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IBAN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="69" width="162" height="16" forecolor="#666666" uuid="c5adf603-ab42-4979-995f-34ca8fa98571"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[0006.0000.7329.0568.3014.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="52" width="34" height="16" forecolor="#666666" uuid="b669d024-4149-47dd-8a5a-6990e45586ef"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[BFA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="52" width="68" height="16" forecolor="#666666" uuid="b681eb6d-d198-41bb-8f06-3b0749460c32"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[73290568]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="103" width="49" height="16" forecolor="#666666" uuid="fb0410cc-d3b4-4646-a6fa-f2ecd07e3998"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[E-MAIL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="103" width="167" height="16" forecolor="#666666" uuid="38b16495-717e-4ddf-a2b3-ed96f4c468f5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[geral.relc@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="86" width="76" height="16" forecolor="#666666" uuid="00170611-cf6c-470b-a3ae-bdd998cf12a5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[922 910 302]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="86" width="32" height="16" forecolor="#666666" uuid="da2173df-f164-4f16-aa14-9876a5032c74"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TEL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="35" width="23" height="16" forecolor="#666666" uuid="6518bc79-fb13-4ac6-a7aa-b2928c2245e3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NIF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="35" width="125" height="16" forecolor="#666666" uuid="38b1ec70-30b0-497b-a003-0c52a2af491d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[004667791BA042]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="119" width="554" height="1" uuid="9347ff84-4f97-4baf-8625-ea6ebf80ba3f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="34" width="553" height="1" uuid="5c7a011f-c5c1-42eb-984f-0ec336962b33"/>
+			</line>
+			<line>
+				<reportElement x="553" y="35" width="1" height="84" uuid="2ba49a13-3faa-49b1-84e9-29ef8bcf3510"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="34" width="1" height="85" uuid="8131b550-e517-484f-86be-6b5541848859"/>
+			</line>
+			<line>
+				<reportElement x="0" y="51" width="268" height="1" uuid="cb1cc60c-0daa-4323-841d-981b40407f77"/>
+			</line>
+			<line>
+				<reportElement x="268" y="35" width="1" height="84" uuid="6b4322d6-3e26-4a42-bbf6-fb3799cccd88"/>
+			</line>
+			<line>
+				<reportElement x="0" y="68" width="268" height="1" uuid="926e4a99-b7e5-42d8-9e82-5d4073aeb4cd"/>
+			</line>
+			<line>
+				<reportElement x="0" y="85" width="268" height="1" uuid="f07aeb98-e5b5-446f-bcda-6899ae34333f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="102" width="268" height="1" uuid="42103b10-8863-44eb-8e59-7eb5b0713084"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="157" width="552" height="11" forecolor="#666666" uuid="3ae08c70-7743-4a55-9af5-8238693d0d85"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[identificar e processar o pagamento. Toda informação em www.relcnet.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="146" width="552" height="10" forecolor="#666666" uuid="783d1a7b-5474-4af9-91f2-8202c9578236"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Deve ser enviada uma cópia  da transferência bancária para geral.relc@gmail.com. O não envio do comprovativo impede a RELC de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="51" width="142" height="16" forecolor="#666666" uuid="da31d27f-0f45-45ef-9579-7f8b5a1d2538"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[______________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="83" width="142" height="16" forecolor="#666666" uuid="e8583863-70cf-4e6a-9d0a-7516a99f6c20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data: ______/______/_______]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="523" y="5" width="28" height="15" uuid="4b84002c-13ca-4e83-95bf-d50aa9769c10"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RELC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="5" width="125" height="15" forecolor="#666666" uuid="4d92feff-1409-422c-85f3-fa7b1b0cc770"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Processado por Software]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
